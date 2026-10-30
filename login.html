@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>gov.gr wallet</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{width:100%;height:100%;background:#0a1c4a;overflow:hidden}
+.bg{
+  position:absolute;
+  inset:0;
+  background:url('https://i.imgur.com/zRhQmLJ.jpeg') center center / cover no-repeat;
+  background-color:#0a1c4a;
+}
+/* Invisible clickable area over the blue TaxisNet button */
+.btn-tax{
+  position:absolute;
+  /* Adjust these if the hit area is slightly off on your phone */
+  left:6%;
+  top:55%;
+  width:70%;
+  height:7%;
+  background:transparent;
+  border:none;
+  cursor:pointer;
+  z-index:10;
+}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<button class="btn-tax" onclick="parent.postMessage({nav:'detail'},'*')" aria-label="Σύνδεση με κωδικούς TaxisNet"></button>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>Menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{width:100%;height:100%;font-family:'Noto Sans',system-ui,sans-serif;background:#003476;color:#fff;overflow-y:auto;-webkit-overflow-scrolling:touch;display:flex;flex-direction:column;letter-spacing:0.2px}
+.bg{position:fixed;inset:0;background:#003476;pointer-events:none;z-index:0}
+
+.m-head{padding:48px 18px 14px;display:flex;align-items:center;gap:14px;position:relative;z-index:2}
+.m-photo{
+  width:64px;
+  height:64px;
+  border-radius:8px;
+  object-fit:cover;
+  border:2.5px solid rgba(255,255,255,.45);
+  background:#132a4a;
+  flex-shrink:0;
+}
+.m-name{font-size:18px;font-weight:600;line-height:1.3;letter-spacing:.3px}
+
+.m-tabs{display:flex;gap:10px;padding:0 16px 16px;position:relative;z-index:2}
+.m-tab{
+  flex:1;
+  height:44px;
+  padding:0 8px;
+  border-radius:6px;
+  background:#00b2e3;
+  border:none;
+  color:#fff;
+  font-size:15px;
+  font-weight:500;
+  letter-spacing:0.3px;
+  cursor:pointer;
+  text-align:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.m-tab.on{background:#00b2e3}
+
+.m-list{padding:0 8px;position:relative;z-index:2;flex:1}
+.m-item{
+  padding:16px 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid rgba(255,255,255,.18);
+  cursor:pointer;
+  font-size:16px;
+  font-weight:500;
+  letter-spacing:0.3px;
+}
+.m-item svg{opacity:.5;width:16px;height:16px;flex-shrink:0}
+.m-item .ext{opacity:.5;width:16px;height:16px}
+
+.m-acts{padding:18px 16px 20px;position:relative;z-index:2;display:flex;flex-direction:column;gap:10px;margin-top:auto}
+.m-act{
+  width:100%;
+  height:50px;
+  padding:0 14px;
+  border-radius:6px;
+  border:1.5px solid rgba(255,255,255,.7);
+  background:transparent;
+  color:#fff;
+  font-size:15.5px;
+  font-weight:500;
+  letter-spacing:0.3px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:12px;
+}
+.m-act svg{width:22px;height:22px;flex-shrink:0;opacity:1}
+.m-act.red{
+  background:#e74c3c;
+  border:none;
+  justify-content:flex-start;
+  margin-top:0;
+}
+.m-act.red svg{width:18px;height:18px}
+
+.m-row{display:flex;gap:10px;align-items:center;margin-top:4px}
+.m-exit{
+  width:50px;
+  height:50px;
+  border:none;
+  background:transparent;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  flex-shrink:0;
+}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+
+<div class="m-head">
+  <img class="m-photo" id="m-photo" src="" alt="">
+  <div class="m-name" id="m-name"></div>
+</div>
+
+<div class="m-tabs">
+  <button class="m-tab on" onclick="parent.postMessage({nav:'detail'},'*')">Η θυρίδα μου</button>
+  <button class="m-tab">Το προφίλ μου</button>
+</div>
+
+<div class="m-list">
+  <div class="m-item" onclick="parent.postMessage({nav:'detail'},'*')">
+    Αρχική
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+  </div>
+  <div class="m-item">
+    Όλες οι υπηρεσίες
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+  </div>
+  <div class="m-item">
+    Συχνές ερωτήσεις
+    <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6M10 14L21 3"/></svg>
+  </div>
+  <div class="m-item">
+    Επικοινωνία
+    <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6M10 14L21 3"/></svg>
+  </div>
+  <div class="m-item">
+    Επικοινωνία για τα εισιτήρια
+    <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6M10 14L21 3"/></svg>
+  </div>
+</div>
+
+<div class="m-acts">
+  <button class="m-act">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 6v12M18 6v12"/></svg>
+    Εισιτήρια
+  </button>
+  <button class="m-act">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+    Έλεγχος Εγγράφου
+  </button>
+  <button class="m-act">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><text x="12" y="15.5" text-anchor="middle" font-size="7.5" fill="#fff" stroke="none" font-weight="700">18+</text></svg>
+    Επαλήθευση Ηλικίας
+  </button>
+
+  <div class="m-row">
+    <button class="m-act red" style="flex:1">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 3l14 9-14 9V3z"/></svg>
+      Μήνυμα 112
+    </button>
+    <button class="m-exit" onclick="parent.postMessage({nav:'login'},'*')" aria-label="Exit">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" width="20" height="20">
+        <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/>
+        <path d="M16 17l5-5-5-5"/>
+        <path d="M21 12H9"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<script>
+const DATA = {
+  photo: "https://i.imgur.com/i508Al3.png",
+  nameEl: "ΧΡΥΣΑ",
+  surnameEl: "ΒΕΚΡΗ"
+};
+
+const photoEl = document.getElementById("m-photo");
+const nameEl  = document.getElementById("m-name");
+
+if (DATA.photo) {
+  photoEl.src = DATA.photo;
+} else {
+  photoEl.style.background = "#1a2f55";
+  photoEl.removeAttribute("src");
+}
+
+nameEl.innerHTML = (DATA.nameEl || "") + (DATA.surnameEl ? "<br>" + DATA.surnameEl : "");
+</script>
+</body>
+</html>
